@@ -1,0 +1,6 @@
+[submodule "demo_qwenvl_backend"]
+	path = demo_qwenvl_backend
+	url = git@github.com:MrMYHuang/demo_qwenvl_backend.git
+[submodule "demo_qwenvl_frontend"]
+	path = demo_qwenvl_frontend
+	url = git@github.com:MrMYHuang/demo_qwenvl_frontend.git

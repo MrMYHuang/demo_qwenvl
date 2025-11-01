@@ -1,0 +1,24 @@
+services:
+  frontend:
+    build: demo_qwenvl_frontend
+    ports:
+      - "8001:80"
+
+  # Unfortunately, Apple Silicon MPS doesn't work in container.
+  # Please start backend from host.
+  #backend:
+  #  build: demo_qwenvl_backend
+  #  ports:
+  #  - "8000:8000"
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    environment:
+      - COLLECTOR_ZIPKIN_HOST_PORT=:9411
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "4317:4317"    # OTLP gRPC
+      - "4318:4318"    # OTLP HTTP
+      - "9411:9411"    # Zipkin
+    restart: unless-stopped
